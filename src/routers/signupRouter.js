@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const SignupRouter = express.Router();
 
-const User = require("../models/userModel");
+const UserModel = require("../models/userModel");
 
 
 SignupRouter.post(
@@ -31,9 +31,11 @@ SignupRouter.post(
             email,
             password
         } = req.body;
-
+        const arrayObj = req.body.productidinbasket;
+        console.log(arrayObj);
+        console.log(typeof arrayObj);
         try {
-            let user = await User.findOne({
+            let user = await UserModel.findOne({
                 email
             });
             if (user) {
@@ -42,10 +44,11 @@ SignupRouter.post(
                 });
             }
 
-            user = new User ({
-               username : username,
+            user = new UserModel ({
+                username : username,
                 email: email,
-                passwordHash: password
+                passwordHash: password,
+                productidinbasket:arrayObj
             });
 
             const salt = await bcrypt.genSalt(10);
@@ -61,7 +64,7 @@ SignupRouter.post(
 
             jwt.sign(
                 payload,
-                "randomString", {
+                process.env.JWT_KEY, {
                     expiresIn: 10000
                 },
                 (err, token) => {

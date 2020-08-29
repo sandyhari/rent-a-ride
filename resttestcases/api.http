@@ -1,0 +1,53 @@
+#############################
+# Testing URL - POST -->request.
+#############################
+GET http://localhost:8649/products
+Content-Type: application/json
+
+###
+POST http://localhost:8649/products
+Content-Type: application/json
+
+{
+    "vehicleName": "Kawasaki",
+      "vehicleImgURL": "https://i.ytimg.com/vi/39LI2BkyQCA/maxresdefault.jpg",
+      "RentalPrice": 1500,
+      "Count": 2,
+      "status": "Available"
+}
+#############################
+# Testing Signup USEr - POST -->request.
+#############################
+
+POST http://localhost:8649/user/signup
+Content-Type: application/json
+
+{
+    "email":"vamsi@gmail.com",
+    "username":"vamsi",
+    "password":"testpass"
+}
+
+#############################
+# Testing LOGIN USER - POST -->request.
+#############################
+
+POST http://localhost:8649/user/login
+Content-Type: application/json
+
+{
+    "email":"hari@gmail.com",
+    "password":"testpass"
+}
+
+###
+PATCH http://localhost:8649/products/5f4a43dd5e01bb5adcb7c10b
+Content-Type: application/json
+
+{
+    "basket": 1,
+    "productidinbasket":["5f3a3eac764a8907887b630b","5f3a3eeb27037707dd2080b8"]
+}
+
+# "userID":"5f4a43dd5e01bb5adcb7c10b",
+# "productidinbasket":["5f3a3eac764a8907887b630b","5f3a3eeb27037707dd2080b8"]

@@ -1,15 +1,15 @@
-require("./config/dbConfig.js");
 const dotenv = require('dotenv');
 dotenv.config();
+require("./src/config/dbConfig");
 const express = require("express");
 const app = express();
 const path = require('path');
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const ProductsRouter = require("./routers/productRouter");
-const UserRouter = require("./routers/userRouter");
-const SignupRouter = require("./routers/signupRouter");
+const ProductsRouter = require("./src/routers/productRouter");
+const UserRouter = require("./src/routers/userRouter");
+const SignupRouter = require("./src/routers/signupRouter");
 
 const PORTVAL = process.env.PORT || 8649;
 

@@ -1,5 +1,5 @@
 const express = require('express');
-const User = require("../models/userModel");
+const UserModel = require("../models/userModel");
 
 const { compareHash } = require("../services/hashing");
 const { userTokenGenerator } = require("../services/jwt_service");
@@ -9,15 +9,20 @@ const UserRouter = express.Router();
 UserRouter.post("/", async (req,res) => {
     try{
         const {email,password} = req.body;
-        const AuthorisedUser = User.findOne({email}.exec());
+        
+        const AuthorisedUser = await UserModel.findOne({email});
+        console.log(AuthorisedUser);
+        
         if(AuthorisedUser){
             const result = await compareHash(password,AuthorisedUser.passwordHash);
             if(result){
                const token =  userTokenGenerator(AuthorisedUser.email);
+               
                res.cookie("jwt", token, {
                 httpOnly: true,
                 secure: true
               });
+
               res.status(200).json({
                 status: "SUCCESS",
                 token

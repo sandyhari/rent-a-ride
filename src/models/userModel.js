@@ -17,6 +17,14 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  basket:{
+    type:Number,
+    default:0
+  },
+  productidinbasket:{
+    type:Array,
+    default:[]
+  },
   createdAt: {
     type: Date,
     default: Date.now()
