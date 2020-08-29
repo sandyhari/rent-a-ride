@@ -37,7 +37,7 @@ ProductRouter
         res.status(500).send("Internal Server Error.")
     }
 })
-.put("/:userid", async (req, res) => {
+.put("/addbasket/:userid", async (req, res) => {
     try {
       const { userid } = req.params;
       console.log("updateing:", userid);
