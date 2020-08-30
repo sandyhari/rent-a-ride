@@ -7,9 +7,10 @@ const { userTokenGenerator } = require("../services/jwt_service");
 const UserRouter = express.Router();
 
 UserRouter.post("/", async (req,res) => {
+
     try{
         const {email,password} = req.body;
-        
+        console.log("logged-in")
         const AuthorisedUser = await UserModel.findOne({email});
         console.log(AuthorisedUser);
         
@@ -24,6 +25,7 @@ UserRouter.post("/", async (req,res) => {
               });
 
               res.status(200).json({
+                 user:AuthorisedUser,
                 status: "SUCCESS",
                 token
               });

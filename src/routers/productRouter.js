@@ -23,17 +23,18 @@ ProductRouter
 })
 .get("/:id",async (req,res)=>{
     try{
+        console.log(req.params);
         let {id} = req.params;
         id = new ObjectId(id);
-        const item = await ProductsModel.findById({id}).exec();
+        const item = await ProductsModel.findById(id);
         if(item){
             res.status(200).json({item});
         }
         else{
             res.status(500).send("Internal Server Error.")
         }
-    }catch{
-        console.error();
+    }catch(e){
+        console.error(e);
         res.status(500).send("Internal Server Error.")
     }
 })

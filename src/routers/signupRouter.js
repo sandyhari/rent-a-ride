@@ -31,7 +31,7 @@ SignupRouter.post(
             email,
             password
         } = req.body;
-        const arrayObj = req.body.productidinbasket;
+        const arrayObj = req.body.productidinbasket === "undefined"?[]:req.body.productidinbasket;
         console.log(arrayObj);
         console.log(typeof arrayObj);
         try {

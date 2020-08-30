@@ -5,11 +5,15 @@ GET http://localhost:8649/products
 Content-Type: application/json
 
 ###
+GET http://localhost:8649/products/5f3a3eeb27037707dd2080b8
+Content-Type: application/json
+
+###
 POST http://localhost:8649/products
 Content-Type: application/json
 
 {
-    "vehicleName": "Kawasaki",
+    "vehicleName": "Kawasaki-zx",
       "vehicleImgURL": "https://i.ytimg.com/vi/39LI2BkyQCA/maxresdefault.jpg",
       "RentalPrice": 1500,
       "Count": 2,
@@ -23,8 +27,8 @@ POST http://localhost:8649/user/signup
 Content-Type: application/json
 
 {
-    "email":"vamsi@gmail.com",
-    "username":"vamsi",
+    "email":"again@gmail.com",
+    "username":"again",
     "password":"testpass"
 }
 
@@ -41,7 +45,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:8649/products/5f4a43dd5e01bb5adcb7c10b
+PUT  http://localhost:8649/products/addbasket/5f4a43dd5e01bb5adcb7c10b
 Content-Type: application/json
 
 {
