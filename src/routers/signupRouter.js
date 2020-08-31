@@ -8,40 +8,17 @@ const UserModel = require("../models/userModel");
 
 
 SignupRouter.post(
-    "/",
-    [
-        check("username", "Please Enter a Valid Username")
-        .not()
-        .isEmpty(),
-        check("email", "Please enter a valid email").isEmail(),
-        check("password", "Please enter a valid password").isLength({
-            min: 6
-        })
-    ],
-    async (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({
-                errors: errors.array()
-            });
-        }
-
-        const {
-            username,
-            email,
-            password
-        } = req.body;
+    "/", async (req, res) => {
+        const {username, email, password} = req.body;
         const arrayObj = req.body.productidinbasket === "undefined"?[]:req.body.productidinbasket;
-        console.log(arrayObj);
+        console.log(username);
         console.log(typeof arrayObj);
         try {
             let user = await UserModel.findOne({
                 email
             });
             if (user) {
-                return res.status(400).json({
-                    msg: "User Already Exists"
-                });
+                return res.status(400).send("User Already Exists");
             }
 
             user = new UserModel ({
@@ -65,7 +42,7 @@ SignupRouter.post(
             jwt.sign(
                 payload,
                 process.env.JWT_KEY, {
-                    expiresIn: 10000
+                    expiresIn: "1 hour"
                 },
                 (err, token) => {
                     if (err) throw err;
