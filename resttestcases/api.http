@@ -13,9 +13,9 @@ POST http://localhost:8649/products
 Content-Type: application/json
 
 {
-    "vehicleName": "Kawasaki-zx",
-      "vehicleImgURL": "https://i.ytimg.com/vi/39LI2BkyQCA/maxresdefault.jpg",
-      "RentalPrice": 1500,
+      "vehicleName": "H2R",
+      "vehicleImgURL": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.totalmotorcycle.com%2Fwp-content%2Fuploads%2F2017%2F11%2F2018-Kawasaki-Ninja-H2-SX3.jpg&f=1&nofb=1",
+      "RentalPrice": 6500,
       "Count": 2,
       "status": "Available"
 }

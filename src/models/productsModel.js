@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
 const ProductSchema = new Schema({
-	_id: mongoose.Schema.Types.ObjectId,
 	vehicleName: String,
 	vehicleImgURL: String,
 	RentalPrice: Number,
