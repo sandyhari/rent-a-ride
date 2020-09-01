@@ -1,7 +1,7 @@
 #############################
 # Testing URL - POST -->request.
 #############################
-GET http://localhost:8649/products
+GET http://localhost:8649/order
 Content-Type: application/json
 
 ###
@@ -27,8 +27,8 @@ POST http://localhost:8649/user/signup
 Content-Type: application/json
 
 {
-    "email":"again@gmail.com",
-    "username":"again",
+    "email":"why@gmail.com",
+    "username":"why",
     "password":"testpass"
 }
 
